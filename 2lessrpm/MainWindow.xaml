@@ -1,0 +1,128 @@
+﻿<Window x:Class="_2lessrpm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2lessrpm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20px">
+            <MenuItem Header="опции">
+                <MenuItem Header="Настройки"/>
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Справка"/>
+        </Menu>
+
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <TabItem Header="stackPanel">
+                <StackPanel Orientation="Horizontal">
+                    <Button Height="40px" Width="40px" Background="Aqua"/>
+                    <Button Height="40px" Width="40px" Background="Azure"/>
+                    <Button Height="40px" Width="40px" Background="Aquamarine"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="dockPanel">
+                <DockPanel>
+                    <Button Content="1" FontSize="50px"/>
+                    <Button Content="1" FontSize="50px" DockPanel.Dock="Right"/>
+                    <Button Content="1" FontSize="50px" DockPanel.Dock="Top"/>
+                    <Button Content="1" FontSize="50px" DockPanel.Dock="Bottom"/>
+                    <Button Content="1" FontSize="50px"/>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="check">
+                <StackPanel>
+                    <CheckBox Content="check 1"/>
+                    <CheckBox Content="check 2"/>
+                    <CheckBox Content="check 3"/>
+                    <RadioButton Content="check 1"/>
+                    <RadioButton Content="check 2"/>
+                    <RadioButton Content="check 3"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="groupBox">
+                <StackPanel>
+                    <GroupBox Header="title 1">
+                        <StackPanel>
+                            <Label>text 1</Label>
+                            <Label>text 2</Label>
+                            <Label>text 3</Label>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="title 2">
+                        <StackPanel>
+                            <Label>text 1</Label>
+                            <Label>text 2</Label>
+                            <Label>text 3</Label>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="TEXT">
+                <StackPanel>
+                    <TextBlock>
+                        ghhhhhkjhgjhfggkjbhvghfthfhgvhgfhg
+                    </TextBlock>
+                    <TextBox VerticalScrollBarVisibility="Visible"  Height="100px" FontSize="40px" TextWrapping="Wrap"
+                             TextAlignment="Justify" Text="hchg"
+                             SpellCheck.IsEnabled="True" Language="ru-ru">
+                    </TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="image">
+                <StackPanel>
+                    <Image Height="100" Source="C:\Users\Александр\source\repos\2lessrpm\2lessrpm\image\"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Listbox">
+                <StackPanel>
+                    <ListBox Name="ListBoxView">
+
+                    </ListBox>
+                    <TextBox Name="TextBoxAddList"/>
+                    <Button Content="Добавить" Click="AddItemInList"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="ListView">
+                <StackPanel>
+                    <ListView Name="MyListView" SelectionChanged="MyListView_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=id}" Header="id"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Header="name"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <WrapPanel>
+                        <Label Content="id полльзователя"/>
+                        <TextBlock Name="TextID" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Имя пользователя"/>
+                        <TextBlock Name="TextName" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Email пользователя"/>
+                        <TextBlock Name="TextEmail" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <DataGrid Name="table" FontSize="40px"></DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
